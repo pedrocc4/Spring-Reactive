@@ -12,3 +12,17 @@ proporcionados por éste
  - La diferencia principal radica en el uso de Mono y Flex
  - Al no trabajar directamente con Entidades y tener que definirlas manualmente, se pueden omitir éstas y
 trabajar directamente con DTOs
+- Si finalmente optamos por usar Thymeleaf, es importante agregar la dependencia que soporta reactivo.
+
+Finalmente las dependencias más a tener en cuenta por posibles errores, serán estas (sin olvidar project-reactor y webflux):  
+
+![image](https://user-images.githubusercontent.com/101171440/183850913-681c3e1d-d47b-4619-b648-b2c978af2206.png)
+
+### Documentación interesante:
+https://www.arquitecturajava.com/spring-5-reactive-y-thymeleaf/   
+https://www.youtube.com/watch?v=tSlkTi9_7aE   
+https://github.com/mkheck/getting-started-r2dbc/blob/master/src/main/java/com/thehecklers/coffeeservice/CoffeeServiceApplication.java    
+https://github.com/tech-recipes/reactive-postgres-demo/tree/master/src/main/java/com/example/reactivepostgresdemo    
+https://www.youtube.com/watch?v=P9L3Lq2Ecvw    
+https://www.youtube.com/watch?v=qwF6v6FN_Uc   
+https://www.baeldung.com/spring-boot-crud-thymeleaf   
