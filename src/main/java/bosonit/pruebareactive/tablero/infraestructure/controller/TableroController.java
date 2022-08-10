@@ -2,40 +2,75 @@ package bosonit.pruebareactive.tablero.infraestructure.controller;
 
 import bosonit.pruebareactive.tablero.domain.Tablero;
 import bosonit.pruebareactive.tablero.infraestructure.repository.TableroRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.thymeleaf.spring5.context.webflux.IReactiveDataDriverContextVariable;
-import org.thymeleaf.spring5.context.webflux.ReactiveDataDriverContextVariable;
+import org.springframework.web.reactive.result.view.Rendering;
 import reactor.core.publisher.Mono;
 
 @Controller
+@Slf4j
 public class TableroController {
 
     @Autowired
     private TableroRepository repository;
 
-    @GetMapping("/")
-    public String getAll(Model model) {
-        IReactiveDataDriverContextVariable listaReactiva =
-                new ReactiveDataDriverContextVariable(repository.findAll());
-        model.addAttribute("tableros", listaReactiva);
-        return "index";
+    @GetMapping("/tableros")
+    public Mono<Rendering> getAll() {
+        return Mono
+                .just(Rendering
+                        .view("index")
+                        .modelAttribute("tableros", repository.findAll())
+                        .build());
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<Mono<Tablero>> getById(@PathVariable int id) {
-        return new ResponseEntity<>(repository.findById(id), HttpStatus.OK);
+    @GetMapping("/tablero")
+    public Mono<Rendering> addForm() {
+        return Mono
+                .just(Rendering
+                        .view("add-tablero")
+                        .modelAttribute("tablero", new Tablero())
+                        .build());
     }
 
-    @PostMapping("")
-    public ResponseEntity<Mono<Tablero>> add(@RequestBody Tablero tablero) {
-        return new ResponseEntity<>(repository.save(tablero), HttpStatus.CREATED);
+    @PostMapping(path = "/tablero", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    public Mono<Rendering> add(Tablero tablero) {
+        return Mono
+                .just(Rendering
+                        .view("redirect:/tableros")
+                        .modelAttribute("tablero", repository.save(tablero))
+                        .build());
+    }
+
+    @GetMapping("/edit/{id}")
+    public Mono<Rendering> editForm(@PathVariable Integer id) {
+        return Mono
+                .just(Rendering
+                        .view("edit-tablero")
+                        .modelAttribute("tablero", repository.findById(id))
+                        .build());
+    }
+
+    @PostMapping(path = "/update/{id}")
+    public Mono<Rendering> update(Tablero tablero) {
+        return Mono
+                .just(Rendering
+                        .view("redirect:/tableros")
+                        .modelAttribute("tableros", repository.save(tablero))
+                        .build());
+    }
+
+    @GetMapping("/delete/{id}")
+    public Mono<Rendering> delete(@PathVariable Integer id) {
+
+        return Mono
+                .just(Rendering
+                        .view("redirect:/tableros")
+                        .modelAttribute("tableros", repository.deleteById(id))
+                        .build());
     }
 }

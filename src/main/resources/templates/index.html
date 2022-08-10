@@ -10,22 +10,23 @@
 </head>
 
 <body>
+
 <h2>Tableros</h2>
 <table>
     <thead>
     <tr>
         <th>ID</th>
         <th>Nombre</th>
-        <!--                <th>Editar</th>-->
-        <!--                <th>Borrar</th>-->
+        <th>Editar</th>
+        <th>Borrar</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="tablero : ${tableros}">
         <td th:text="${tablero.id}"></td>
         <td th:text="${tablero.nombre}"></td>
-        <!--                <td><a th:href="@{/edit/{id}(id=${tablero.id})}">Editar</a></td>-->
-        <!--                <td><a th:href="@{/delete/{id}(id=${tablero.id})}">Borrar</a></td>-->
+        <td><a th:href="@{/edit/{id}(id=${tablero.id})}">Editar</a></td>
+        <td><a th:href="@{/delete/{id}(id=${tablero.id})}">Borrar</a></td>
     </tr>
     </tbody>
 </table>

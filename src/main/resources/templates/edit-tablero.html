@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Tableros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+<h2>Editar tablero</h2>
+<form action="#"
+      th:action="@{/update/{id}(id=${tablero.id})}"
+      th:object="${tablero}"
+      method="post">
+    <label for="nombre">Nombre: </label>
+    <input type="text" th:field="*{nombre}" id="nombre" placeholder="Nombre">
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>
