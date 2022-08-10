@@ -12,7 +12,7 @@ proporcionados por éste
  - La diferencia principal radica en el uso de Mono y Flex
  - Al no trabajar directamente con Entidades y tener que definirlas manualmente, se pueden omitir éstas y
 trabajar directamente con DTOs
-- Si finalmente optamos por usar Thymeleaf, es importante agregar la dependencia que soporta reactivo.
+- Si finalmente optamos por usar Thymeleaf, es importante agregar la dependencia que soporta reactivo (al igual para postgres).
 
 Finalmente las dependencias más a tener en cuenta por posibles errores, serán estas (sin olvidar project-reactor y webflux):  
 
