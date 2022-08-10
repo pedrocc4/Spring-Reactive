@@ -26,3 +26,10 @@ https://github.com/tech-recipes/reactive-postgres-demo/tree/master/src/main/java
 https://www.youtube.com/watch?v=P9L3Lq2Ecvw    
 https://www.youtube.com/watch?v=qwF6v6FN_Uc   
 https://www.baeldung.com/spring-boot-crud-thymeleaf   
+
+### Manual
+
+Una vez clonado en local este repositorio y con docker instalado en nuestro equipo, en la terminal escribimos 'docker-compose up' 
+que creará la BD postgres y ejecutará el archivo 'init.sql' inicializando de esta forma nuestra BD.
+
+Lanzaremos desde nuestro IDE la aplicación de Spring Boot y en la ruta localhost:8080 podremos empezar a hacer peticiones.
