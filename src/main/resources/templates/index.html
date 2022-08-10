@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Tableros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+<h2>Tableros</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <!--                <th>Editar</th>-->
+        <!--                <th>Borrar</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tablero : ${tableros}">
+        <td th:text="${tablero.id}"></td>
+        <td th:text="${tablero.nombre}"></td>
+        <!--                <td><a th:href="@{/edit/{id}(id=${tablero.id})}">Editar</a></td>-->
+        <!--                <td><a th:href="@{/delete/{id}(id=${tablero.id})}">Borrar</a></td>-->
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>

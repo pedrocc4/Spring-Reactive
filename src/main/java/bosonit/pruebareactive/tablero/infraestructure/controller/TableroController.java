@@ -5,20 +5,28 @@ import bosonit.pruebareactive.tablero.infraestructure.repository.TableroReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.thymeleaf.spring5.context.webflux.IReactiveDataDriverContextVariable;
+import org.thymeleaf.spring5.context.webflux.ReactiveDataDriverContextVariable;
 import reactor.core.publisher.Mono;
 
-@RestController
-@RequestMapping("tablero")
+@Controller
 public class TableroController {
 
     @Autowired
     private TableroRepository repository;
 
-    @GetMapping("")
-    public ResponseEntity<Flux<Tablero>> getAll() {
-        return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
+    @GetMapping("/")
+    public String getAll(Model model) {
+        IReactiveDataDriverContextVariable listaReactiva =
+                new ReactiveDataDriverContextVariable(repository.findAll());
+        model.addAttribute("tableros", listaReactiva);
+        return "index";
     }
 
     @GetMapping("{id}")
