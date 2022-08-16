@@ -28,6 +28,7 @@ https://www.youtube.com/watch?v=qwF6v6FN_Uc
 https://www.baeldung.com/spring-boot-crud-thymeleaf  
 https://developer.okta.com/blog/2022/03/24/thymeleaf-security   
 https://www.cognizantsoftvision.com/blog/getting-started-with-reactive-spring-spring-webflux/    
+https://github.com/evgeniy-khist/spring-data-examples/tree/master/spring-data-r2dbc-examples   
 
 ### Manual
 
