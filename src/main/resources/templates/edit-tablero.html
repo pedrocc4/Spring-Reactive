@@ -17,6 +17,10 @@
       method="post">
     <label for="nombre">Nombre: </label>
     <input type="text" th:field="*{nombre}" id="nombre" placeholder="Nombre">
+    <label for="filas">Filas: </label>
+    <input type="number" th:field="*{ncolumnas}" id="filas" placeholder="Filas">
+    <label for="columnas">Columnas: </label>
+    <input type="number" th:field="*{nfilas}" id="columnas" placeholder="Columnas">
     <input type="submit" value="Update">
 </form>
 </body>

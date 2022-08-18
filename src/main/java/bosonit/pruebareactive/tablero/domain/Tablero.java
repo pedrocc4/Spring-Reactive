@@ -14,4 +14,10 @@ public class Tablero {
 
     @NotNull
     private String nombre;
+
+    private int nfilas;
+
+    private int ncolumnas;
+
+    private int[][] matrix;
 }

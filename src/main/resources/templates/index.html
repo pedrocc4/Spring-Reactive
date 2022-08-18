@@ -8,10 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
-
 <body>
-
 <h2>Tableros</h2>
+<h3><a th:href="@{/tablero}">Nuevo</a></h3>
 <table>
     <thead>
     <tr>
@@ -19,6 +18,7 @@
         <th>Nombre</th>
         <th>Editar</th>
         <th>Borrar</th>
+        <th>Ver</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +27,7 @@
         <td th:text="${tablero.nombre}"></td>
         <td><a th:href="@{/edit/{id}(id=${tablero.id})}">Editar</a></td>
         <td><a th:href="@{/delete/{id}(id=${tablero.id})}">Borrar</a></td>
+        <td><a th:href="@{/partida/{id}(id=${tablero.id})}">Ver</a></td>
     </tr>
     </tbody>
 </table>
