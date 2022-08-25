@@ -29,6 +29,8 @@ https://www.baeldung.com/spring-boot-crud-thymeleaf
 https://developer.okta.com/blog/2022/03/24/thymeleaf-security   
 https://www.cognizantsoftvision.com/blog/getting-started-with-reactive-spring-spring-webflux/    
 https://github.com/evgeniy-khist/spring-data-examples/tree/master/spring-data-r2dbc-examples   
+https://howtodoinjava.com/spring-webflux/webclient-get-post-example/   
+http://www.profesor-p.com/webclient/   
 
 ### Manual
 
